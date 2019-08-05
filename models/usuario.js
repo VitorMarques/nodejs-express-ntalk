@@ -1,7 +1,7 @@
 module.exports = function (app) {
 
-    const db = require('../middleware/dbconnection');
-    const Schema = require('mongoose').Schema;
+    const mongoose = require('mongoose');
+    const Schema = mongoose.Schema;
 
     const contato = Schema({
         nome: String,
@@ -14,6 +14,6 @@ module.exports = function (app) {
         contatos: [contato]
     });
 
-    db.model('usuarios', usuario);
+    return mongoose.model('usuarios', usuario);
 
 };
